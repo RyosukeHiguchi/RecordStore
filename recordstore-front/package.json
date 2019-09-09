@@ -6,14 +6,18 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "start": "npm run dev node server.js",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js"
+    "lint": "eslint --ext .js,.vue src test/unit vue-cli-service lint",
+    "build": "vue-cli-service build node build/build.js",
+    "serve": "vue-cli-service serve",
+    "postinstall": "yarn build"
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "express": "^4.17.1",
+    "server.js": "^1.0.0",
     "tailwindcss": "^1.1.2",
     "vue": "^2.5.2",
     "vue-axios": "^2.1.4",
